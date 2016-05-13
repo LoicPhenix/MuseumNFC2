@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="Sqlite (Xerial) - MuseNFC.db" uuid="3dd858d3-ba99-41a0-a91c-4a2c5c87106c">
+    <database-info product="SQLite" version="3.8.11" jdbc-version="2.1" driver-name="SQLiteJDBC" driver-version="native"/>
+    <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed"/>
+    <schema name="" catalog=""/>
+    <table name="spots_nfc" schema="" catalog="" type="TABLE">
+      <column name="uid" sqlType="CHARACTER" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="name" sqlType="CHARACTER" precision="0" scale="-1" nullable="false" jdbcType="12" def="J05VTEwn"/>
+      <column name="description" sqlType="CHARACTER" precision="0" scale="-1" nullable="false" jdbcType="12" def="J05VTEwn"/>
+      <primary-key columns="uid"/>
+      <index name="spots_nfc_uid_uindex" unique="true" columns="uid"/>
+    </table>
+  </data-source>
+</component>

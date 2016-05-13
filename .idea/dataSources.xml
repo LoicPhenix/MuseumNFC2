@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="838321914">
+    <data-source source="LOCAL" name="Sqlite (Xerial) - MuseNFC.db" uuid="3dd858d3-ba99-41a0-a91c-4a2c5c87106c">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/data/MuseNFC.db</jdbc-url>
+    </data-source>
+  </component>
+</project>

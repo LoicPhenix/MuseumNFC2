@@ -1,0 +1,74 @@
+body {    height: auto;}
+.notify-container {margin-top: 45px;}
+div, span, p, a, input, h1, h2, h3, h4, h5 {
+    font-family: 'Source Sans Pro' !important;
+}
+#content {
+    margin-top: 60px;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+#menu {
+    margin-left: -25px;
+    margin-right: -25px;
+}
+.center {
+    align-self: center;
+    align-content: center;
+}
+#wrapper {
+    padding-left: 250px;
+    transition: all 0.4s ease 0s;
+}
+#sidebar-wrapper {
+    margin-left: -250px;
+    left: 250px;
+    width: 250px;
+    background: #000;
+    position: fixed;
+    height: 100%;
+    overflow-y: auto;
+    z-index: 1000;
+    transition: all 0.4s ease 0s;
+}
+#page-content-wrapper {
+    width: 100%;
+}
+.sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+@media (max-width:767px) {
+#wrapper {        padding-left: 0;}
+#sidebar-wrapper {        left: 0;}
+#wrapper.active {
+        position: relative;
+        left: 250px;
+}
+#wrapper.active #sidebar-wrapper {
+            left: 250px;
+            width: 250px;
+            transition: all 0.4s ease 0s;
+}
+#myImage {
+    zoom: 2;  //increase if you have very small images
+    display: block;
+    margin: auto;
+    height: auto;
+    max-height: 100%;
+    width: auto;
+    max-width: 100%;
+}
+}
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 25px;
+    width: 100%;
+    z-index: 1001;
+}
