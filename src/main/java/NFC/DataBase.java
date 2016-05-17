@@ -24,7 +24,7 @@ public class DataBase {
         Connection c = null;
         try {
             Class.forName("org.sqlite.JDBC");
-            this.con = DriverManager.getConnection("jdbc:sqlite:F:/OneDrive/LP SIL IDSE/RFID (Mme Lesas)/Projet/MuseumNFC2/data/MuseNFC.db");
+            this.con = DriverManager.getConnection("jdbc:sqlite:C:/Users/Mélissa/Desktop/Projets_Loic_IUT/RFID/MuseumNFC2/data/MuseNFC.db");
             this.stmt = con.createStatement();
             System.out.println("Database ready");
         } catch ( Exception e ) {
@@ -36,7 +36,7 @@ public class DataBase {
     public JSONObject getListOeuvres() throws SQLException, JSONException {
         ResultSet allCat = this.stmt.executeQuery("SELECT * FROM spots_nfc");
         JSONArray listCat = new JSONArray();
-        JSONObject resList = new JSONObject();
+        JSONObject res = new JSONObject();
 
         while (allCat.next()) {
             JSONObject obj = new JSONObject();
@@ -47,8 +47,8 @@ public class DataBase {
         }
         System.out.println("Database");
         System.out.println(listCat);
-        resList.put("oeuvres",listCat);
-        return resList;
+        res.put("oeuvres",listCat);
+        return res;
     }
 
     public String addOeuvre(String uid, String param1, String param2) throws SQLException {

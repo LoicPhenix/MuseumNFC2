@@ -1,12 +1,6 @@
 package webservice.rest;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.List;
-
 import javax.smartcardio.CardException;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -15,8 +9,6 @@ import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
 
 import NFC.*;
-import org.codehaus.jettison.json.JSONString;
-import org.codehaus.jettison.json.JSONStringer;
 
 
 @Path("/")
@@ -51,7 +43,7 @@ public class webservice {
         if (datas.getString("uid").length() > 2) {
             return dataBase.addOeuvre(datas.getString("uid"), datas.getString("name"), datas.getString("description"));
         } else {
-            return "Taille de carte incorrecte";
+            return "carte invalide";
         }
     }
 

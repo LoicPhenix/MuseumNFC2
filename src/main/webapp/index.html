@@ -39,24 +39,7 @@
         </header>
 
         <div>
-            <!--
-                <form>
-                    <fieldset>
-                        <legend>Veuillez scanner votre ...</legend>
 
-                        <div id="formRFID">
-                            <label>Carte Etudiant</label>
-                            <input id="nomUser" type="text" placeholder="Nom etudiant">
-
-                            <label>Produit</label>
-                            <input id="nomProduit" type="text" placeholder="Nom produit">
-                        </div>
-                        <button type="submit" class="btn">Emprunter</button>
-
-                    </fieldset>
-                </form>
-            </pre>
-            -->
             <div id="content">
 
                 <style scoped="">
@@ -77,87 +60,46 @@
                 <div style="padding:0px 40px;">
 
                     <div class="col-xs-12" style="padding:0px 20px;">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <div id="toolbarApp" data-role="toolbar" class="k-toolbar k-widget k-toolbar-resizable" data-uid="38da2d06-9659-4f26-b871-6b9dc6a5a633" tabindex="0"><div tabindex="0" class="k-overflow-anchor k-button" style="visibility: hidden; width: 1px;"><span class="k-icon k-i-arrow-s"></span></div><div data-uid="ecc30d14-ea52-4663-a22b-ad6f6dd744db" data-overflow="never" style="visibility: visible;"><a class="btn btn-primary btn-large pull-right" onclick="app.application.onAddCategory()" href="#">Nouvelle</a></div><div data-uid="85afd591-c6a8-4efb-8704-a2e578380e6e" data-overflow="auto" class="k-separator" style="visibility: visible;">&nbsp;</div><div data-uid="ba1a24b7-8572-498b-af9e-fb04ef1c8155" data-overflow="never" style="visibility: visible;"><label>Filtrer : </label></div><div data-uid="cc9aac39-5bef-44bd-84d2-cf8091e2ac35" data-overflow="never" style="visibility: visible;"><input id="searchApp" type="text" class="k-textbox" placeholder="Application ..." style="width:150px;"></div></div>
-                            </div>
+                        <div id="grid"></div>
+                        <script>
+                            $(document).ready(function () {
+                                $("#grid").kendoGrid({
+                                    dataSource: {
+                                        type: "JSON",
+                                        transport: {
+                                            async:false,
+                                            read: {
+                                                url: "http://127.0.0.1:8080/rest/listOeuvres",
+                                                dataType: "json",
+                                                contentType: "application/json; charset=utf-8",
+                                                type: "POST"
+                                            }
+                                        },
+                                        pageSize: 20
+                                    },
+                                    height: 550,
+                                    groupable: true,
+                                    sortable: true,
+                                    pageable: {
+                                        refresh: true,
+                                        pageSizes: true,
+                                        buttonCount: 5
+                                    },
+                                    columns: [{
+                                        field: "uid",
+                                        title: "Carte UID",
+                                    }, {
+                                        field: "name",
+                                        title: "Nom spot_nfc"
+                                    }, {
+                                        field: "description",
+                                        title: "description"
+                                    }]
+                                });
+                            });
+                        </script>
 
-                            <div id="appsGrid" class="table-responsive k-grid k-widget" data-role="grid">
-                                <table id="grid" class="table table-hover k-selectable" role="grid" data-role="selectable"><colgroup><col style="width:250px"><col style="width:70px"><col><col style="width:100px"><col style="width:150px"></colgroup><thead class="k-grid-header" role="rowgroup"><tr role="row"><th role="columnheader" data-field="appName" rowspan="1" data-title="Application" data-index="0" id="981490c1-f8d8-4a59-a8be-d9ef0d5606f0" class="k-header" data-role="columnsorter" data-dir="asc" aria-sort="ascending"><a class="k-link" href="#">Application<span class="k-icon k-i-arrow-n"></span></a></th><th role="columnheader" data-field="defaultLanguage" rowspan="1" data-title="Langue" data-index="1" id="4eb05787-eae1-44ba-8b35-4c586d1c611a" class="k-header" data-role="columnsorter"><a class="k-link" href="#">Langue</a></th><th role="columnheader" data-field="DisplayImageName" rowspan="1" data-title="Logo Principal" data-index="2" id="7e1e65df-9827-4db9-bba3-74122f7e95ec" class="k-header" data-role="columnsorter"><a class="k-link" href="#">Logo Principal</a></th><th id="44313353-0cf7-4db6-bf5f-d4c9958c79d5" rowspan="1" data-index="3" class="k-header"> </th><th id="461a3dc0-796a-439f-8a53-f03668940e8a" rowspan="1" data-index="4" class="k-header"> </th></tr></thead><tbody role="rowgroup">
-                                <tr data-uid="4508f3a1-cc19-4043-ab9a-1cd3250fda82" class="k-state-selected" aria-selected="true">
-                                    <td class="name" style="font-weight:700;">Test_application</td>
-                                    <!--<td class="type"><span>Standard</span></td>-->
-                                    <td style="width:70px;">FR</td>
-                                    <!--<td style="text-align:center;"><input type="checkbox" disabled ></input></td>-->
-                                    <!--<td >null</td>
-                                    <td >null</td>-->
-                                    <td style="text-align:center;">
-
-                                        <div class="logoAPP" title="Message AVIVA FB Audiospot"><img src="http://preview.audiospot.fr/audiospotdata/online/c88c0e77-f6dd-42db-9697-7ce7a8ea4ff2/c88c0e77-f6dd-42db-9697-7ce7a8ea4ff2.png?0.23775115266827784"></div>
-
-                                    </td>
-                                    <td style="text-align:center;">
-
-                                        <a class="k-grid-imageDelete" id="delete" href="#" data-toggle="tooltip" title="supprimer l'image"><span class="glyphicon glyphicon-erase "></span></a>
-                                        <a class="k-grid-imageChange" id="change" href="#" data-toggle="tooltip" title="changer l'image"><span class="glyphicon glyphicon-refresh "></span></a>
-
-                                    </td>
-
-                                    <td style="text-align:center;">
-                                        <a class="k-grid-edit" href="#" data-toggle="tooltip" title="" data-original-title="modifier"><span class="glyphicon glyphicon-pencil"></span></a>
-                                        <a class="k-grid-delete" href="#" data-toggle="tooltip" title="" data-original-title="supprimer"><span class="glyphicon glyphicon-trash"></span></a>
-                                        <a class="k-grid-manage" href="#" data-toggle="tooltip" title="" data-original-title="gérer"><span class="glyphicon glyphicon-eye-open"></span></a>
-                                    </td>
-
-                                </tr>
-
-                                </tbody></table>
-                            </div>
-
-                            <!--select upload file-->
-                            <input type="file" id="imageFile" style="display:none" accept=".jpg,.jpeg,.png">
-
-                        </div>
                     </div>
-
-                    <script type="text/x-kendo-template" id="rowTemplate">
-                        <tr data-uid="#= uid #">
-                            <td class="name" style="font-weight:700;">#: appName #</td>
-                            <!--<td class="type">#= getEAppTypeTemplate(appType) #</td>-->
-                            <td style="width:70px;">#= getLanguage(defaultLanguage) #</td>
-                            <!--<td style="text-align:center;">#= app.application.hasTrue(hasWorkingCopy) #</td>-->
-                            <!--<td >#: longitude #</td>
-                            <td >#: latitude #</td>-->
-                            <td style="text-align:center;">
-                                # if ( imgName == '')
-                                {#
-                                <div class="logoAPP" title="640 x 200"><img src="/admin/templates/logo_AudioSpot_640x200.jpg"></div>
-                                #} else {#
-                                <div class="logoAPP" title="#= app.application.shortName(imgName)#"><img src="#= app.application.URLWebName(imgURL)#" /></div>
-                                #}#
-                            </td>
-                            <td style="text-align:center;">
-                                # if ( imgName == '')
-                                {#
-                                <a class="k-grid-imageLoad" id="upload" href="\\#" data-toggle="tooltip" title="ajouter image"><span class="glyphicon glyphicon-camera "></span></a>
-                                <!-- icon neutre pour respecter espace -->
-                                <a class="k-grid-imageLoad" id="espace" href="\\#" data-toggle="tooltip" title="espace"><span class="glyphicon none "></span></a>
-                                &nbsp;&nbsp;&nbsp;
-                                #} else {#
-                                <a class="k-grid-imageDelete" id="delete" href="\\#" data-toggle="tooltip" title="supprimer l'image"><span class="glyphicon glyphicon-erase "></span></a>
-                                <a class="k-grid-imageChange" id="change" href="\\#" data-toggle="tooltip" title="changer l'image"><span class="glyphicon glyphicon-refresh "></span></a>
-                                #}#
-                            </td>
-
-                            <td style="text-align:center;">
-                                <a class="k-grid-edit" href="\\#" data-toggle="tooltip" title="modifier"><span class="glyphicon glyphicon-pencil"></span></a>
-                                <a class="k-grid-delete" href="\\#" data-toggle="tooltip" title="supprimer"><span class="glyphicon glyphicon-trash"></span></a>
-                                <a class="k-grid-manage" href="\\#" data-toggle="tooltip" title="g&eacute;rer"><span class="glyphicon glyphicon-eye-open"></span></a>
-                            </td>
-
-                        </tr>
-
-                    </script>
 
                 </div>
             </div>
